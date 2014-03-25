@@ -1,0 +1,17 @@
+{
+  "name": "mullet users",
+  "version": "0.0.1",
+  "description": "Mullet user interface",
+  "dependencies": {
+      "bcrypt-nodejs": "",
+      "rsvp": "",
+      "underscore": ""
+  },
+  "author": "Wes Johnson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sterlingwes/mullet/issues"
+  },
+  "homepage": "https://github.com/sterlingwes/mullet",
+  "mullet": {}
+}

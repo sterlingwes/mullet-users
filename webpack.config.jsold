@@ -1,0 +1,11 @@
+module.exports = {
+    cache:  true,
+    entry:  './src/entry.js',
+    output: {
+        path: __dirname + '/build',
+        filename: 'index.js'
+    },
+    resolve: {
+        modulesDirectories: ['bower_components', 'node_modules', 'libs']
+    }
+};
