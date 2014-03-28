@@ -217,6 +217,8 @@ module.exports = function(server, db, sessions) {
 
     });
     
-    return {};
+    return {
+        schema: User
+    };
     
 };
