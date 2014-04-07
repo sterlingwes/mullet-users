@@ -80,8 +80,9 @@ module.exports = function(server, User, utils) {
                 var sessionKey = crypto.createHash('sha1').update(user.get('username')).digest('hex');
                 user.set('services.'+req.body.session+'.key', sessionKey);
                 user.save(function(err,usr) {
+                    
                     req['session_'+req.body.session].key = sessionKey;
-                    req['session_'+req.body.session].id = usr.id;
+                    req['session_'+req.body.session].id = user.id;
                     
                     if(err) console.error(err);
                     res.json({

@@ -28,6 +28,10 @@ module.exports = function(server, db, sessions) {
                 created: {
                     type:   Date
                 },
+                profile: {
+                    type:   Object,
+                    safe:   true
+                },
                 services: { // session_ident (client-side session), facebook, twitter, SRP, etc.
                     type:   Object
                 }
@@ -59,10 +63,11 @@ module.exports = function(server, db, sessions) {
             });
         else // find user
         {
-            findUser({ 
+            utils.findUser({ 
                 _id: req.currentSession.id
             })
             .then(function(usrs) {
+
                 var usr = _.find(usrs, function(u) {
                     var uf = u.get(),
                         sesh = uf.services && uf.services[req.currentSession.name];
