@@ -4,6 +4,8 @@ var net = typeof window === 'object' ? require('imports?win=>window!libs/ajax') 
 module.exports = {
     
     componentWillMount: function() {
+        return;
+        
         net.ajax({
             url:        '/api/users/',
             complete:   function(res) {
@@ -15,9 +17,28 @@ module.exports = {
         });
     },
     
+    login: function(creds) {
+        
+        return this.setState({
+            user:   { username: 'wes' }
+        });
+        
+        net.ajax({
+            url:    '/api/users',
+            type:   'POST',
+            data:   creds,
+            complete: function() {
+                
+            }
+        })
+    },
+    
     logout: function() {
-        if(res.ok)  this.setState({ user: undefined });
+        this.setState({ user: undefined });
         $.Evts('flash').pub('Logging Out...');
+        
+        return;
+        
         net.ajax({
             url:        '/api/users/logout',
             complete:   function(res) {
