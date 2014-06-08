@@ -19,7 +19,6 @@ module.exports = React.createClass({
     },
     
     formDone: function(name, data) {
-        console.log('form: '+name, data);
         this.props.login(data);
     },
     
